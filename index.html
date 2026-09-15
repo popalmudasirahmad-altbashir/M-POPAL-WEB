@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#050505"
+    >
+
+    <meta
+        name="description"
+        content="M POPAL'S AI CHAT"
+    >
+
+    <title>M POPAL'S AI CHAT</title>
+
+    <!-- Main stylesheet -->
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         APP
+    ====================================================== -->
+
+    <div
+        class="app"
+        id="app"
+    >
+
+
+        <!-- =================================================
+             MOBILE OVERLAY
+        ================================================== -->
+
+        <div
+            class="mobile-overlay"
+            id="mobileOverlay"
+        ></div>
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+
+        <aside
+            class="sidebar"
+            id="sidebar"
+        >
+
+            <!-- SIDEBAR HEADER -->
+
+            <div class="sidebar-header">
+
+                <div class="brand">
+
+                    <div class="brand-logo">
+                        M
+                    </div>
+
+                    <div class="brand-text">
+
+                        <div class="brand-title">
+                            M POPAL'S
+                        </div>
+
+                        <div class="brand-subtitle">
+                            AI CHAT
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="sidebar-close"
+                    id="sidebarClose"
+                    aria-label="Close sidebar"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+                 NEW CHAT
+            ================================================== -->
+
+            <button
+                class="new-chat-button"
+                id="newChatButton"
+            >
+
+                <span class="new-chat-plus">
+                    +
+                </span>
+
+                <span>
+                    New chat
+                </span>
+
+            </button>
+
+
+            <!-- =================================================
+                 SIDEBAR SEARCH
+            ================================================== -->
+
+            <button
+                class="sidebar-search-button"
+                id="sidebarSearchButton"
+            >
+
+                <span class="sidebar-search-icon">
+                    ⌕
+                </span>
+
+                <span>
+                    Search chats
+                </span>
+
+                <span class="shortcut">
+                    /
+                </span>
+
+            </button>
+
+
+            <!-- =================================================
+                 NAVIGATION
+            ================================================== -->
+
+            <nav class="sidebar-navigation">
+
+                <button
+                    class="sidebar-nav-item active"
+                    data-page="chats"
+                >
+
+                    <span class="nav-icon">
+                        ◌
+                    </span>
+
+                    <span>
+                        Chats
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="sidebar-nav-item"
+                    data-page="discover"
+                >
+
+                    <span class="nav-icon">
+                        ✦
+                    </span>
+
+                    <span>
+                        Discover
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="sidebar-nav-item"
+                    data-page="saved"
+                >
+
+                    <span class="nav-icon">
+                        ♢
+                    </span>
+
+                    <span>
+                        Saved
+                    </span>
+
+                </button>
+
+            </nav>
+
+
+            <!-- =================================================
+                 CHAT HISTORY
+            ================================================== -->
+
+            <div
+                class="chat-history"
+                id="chatHistory"
+            >
+
+                <div class="history-heading">
+
+                    <span>
+                        Recent
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="history-items"
+                    id="historyItems"
+                >
+
+                    <!-- JavaScript will add chats here -->
+
+                    <button class="history-item active">
+
+                        <span class="history-icon">
+                            ◌
+                        </span>
+
+                        <span class="history-title-text">
+                            New conversation
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SIDEBAR BOTTOM
+            ================================================== -->
+
+            <div class="sidebar-bottom">
+
+
+                <!-- Settings -->
+
+                <button
+                    class="sidebar-bottom-item"
+                    id="settingsButton"
+                >
+
+                    <span>
+                        ⚙
+                    </span>
+
+                    <span>
+                        Settings
+                    </span>
+
+                </button>
+
+
+                <!-- Help -->
+
+                <button
+                    class="sidebar-bottom-item"
+                    id="helpButton"
+                >
+
+                    <span>
+                        ?
+                    </span>
+
+                    <span>
+                        Help
+                    </span>
+
+                </button>
+
+
+                <!-- User -->
+
+                <button
+                    class="user-profile"
+                    id="profileButton"
+                >
+
+                    <div class="profile-avatar">
+                        M
+                    </div>
+
+                    <div class="profile-details">
+
+                        <strong>
+                            M POPAL
+                        </strong>
+
+                        <span>
+                            Personal AI
+                        </span>
+
+                    </div>
+
+                    <span class="profile-more">
+                        ⋯
+                    </span>
+
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =====================================================
+             MAIN CONTENT
+        ====================================================== -->
+
+        <main
+            class="main-content"
+            id="mainContent"
+        >
+
+
+            <!-- =================================================
+                 TOP BAR
+            ================================================== -->
+
+            <header class="topbar">
+
+
+                <div class="topbar-left">
+
+                    <!-- Mobile menu -->
+
+                    <button
+                        class="topbar-icon menu-button"
+                        id="menuButton"
+                        aria-label="Open menu"
+                    >
+                        ☰
+                    </button>
+
+
+                    <!-- Desktop sidebar toggle -->
+
+                    <button
+                        class="topbar-icon sidebar-toggle"
+                        id="sidebarToggle"
+                        aria-label="Toggle sidebar"
+                    >
+                        ◀
+                    </button>
+
+
+                    <!-- Model selector -->
+
+                    <button
+                        class="model-selector"
+                        id="modelSelector"
+                    >
+
+                        <span class="model-logo">
+                            M
+                        </span>
+
+                        <span class="model-name">
+                            M POPAL'S AI
+                        </span>
+
+                        <span class="model-arrow">
+                            ▾
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+                <div class="topbar-right">
+
+
+                    <!-- Search -->
+
+                    <button
+                        class="topbar-icon"
+                        id="topSearchButton"
+                        aria-label="Search"
+                    >
+                        ⌕
+                    </button>
+
+
+                    <!-- New chat -->
+
+                    <button
+                        class="topbar-icon"
+                        id="topNewChatButton"
+                        aria-label="New chat"
+                    >
+                        +
+                    </button>
+
+
+                    <!-- More -->
+
+                    <button
+                        class="topbar-icon"
+                        id="moreButton"
+                        aria-label="More"
+                    >
+                        ⋯
+                    </button>
+
+                </div>
+
+            </header>
+
+
+            <!-- =================================================
+                 CHAT PAGE
+            ================================================== -->
+
+            <section
+                class="chat-page"
+                id="chatPage"
+            >
+
+
+                <!-- =================================================
+                     WELCOME SCREEN
+                ================================================== -->
+
+                <div
+                    class="welcome-screen"
+                    id="welcomeScreen"
+                >
+
+
+                    <!-- Main logo -->
+
+                    <div class="hero-logo-wrapper">
+
+                        <div class="hero-logo-glow"></div>
+
+                        <div class="hero-logo">
+                            M
+                        </div>
+
+                    </div>
+
+
+                    <h1 class="welcome-title">
+                        How can I help you?
+                    </h1>
+
+
+                    <p class="welcome-description">
+                        Ask M POPAL'S AI anything.
+                    </p>
+
+
+                    <!-- =================================================
+                         QUICK PROMPTS
+                    ================================================== -->
+
+                    <div class="quick-prompts">
+
+
+                        <button
+                            class="quick-prompt"
+                            data-prompt="Explain this topic to me in a simple way."
+                        >
+
+                            <span class="prompt-symbol yellow">
+                                ✦
+                            </span>
+
+                            <span>
+                                Explain something
+                            </span>
+
+                        </button>
+
+
+                        <button
+                            class="quick-prompt"
+                            data-prompt="Search the web for the latest information about this."
+                        >
+
+                            <span class="prompt-symbol blue">
+                                ⌕
+                            </span>
+
+                            <span>
+                                Search the web
+                            </span>
+
+                        </button>
+
+
+                        <button
+                            class="quick-prompt"
+                            data-prompt="Help me write something clearly and professionally."
+                        >
+
+                            <span class="prompt-symbol pink">
+                                ✎
+                            </span>
+
+                            <span>
+                                Help me write
+                            </span>
+
+                        </button>
+
+
+                        <button
+                            class="quick-prompt"
+                            data-prompt="Teach me this topic step by step."
+                        >
+
+                            <span class="prompt-symbol white">
+                                ◇
+                            </span>
+
+                            <span>
+                                Help me learn
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     MESSAGES
+                ================================================== -->
+
+                <div
+                    class="messages-container"
+                    id="messagesContainer"
+                >
+
+                    <!-- Messages are created by JavaScript -->
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 COMPOSER AREA
+            ================================================== -->
+
+            <div class="composer-area">
+
+
+                <!-- =================================================
+                     COLOR LIGHT / GLOW LAYER
+                     This is the 4-color effect while typing.
+                ================================================== -->
+
+                <div
+                    class="composer-glow"
+                    id="composerGlow"
+                >
+
+                    <span class="glow-yellow"></span>
+
+                    <span class="glow-blue"></span>
+
+                    <span class="glow-pink"></span>
+
+                    <span class="glow-white"></span>
+
+                </div>
+
+
+                <!-- =================================================
+                     COMPOSER
+                ================================================== -->
+
+                <div
+                    class="composer"
+                    id="composer"
+                >
+
+
+                    <!-- Attachment -->
+
+                    <button
+                        class="composer-button attach-button"
+                        id="attachButton"
+                        aria-label="Attach file"
+                    >
+                        +
+                    </button>
+
+
+                    <!-- Textarea -->
+
+                    <textarea
+                        id="messageInput"
+                        class="message-input"
+                        rows="1"
+                        maxlength="12000"
+                        placeholder="Message M POPAL'S AI..."
+                        aria-label="Message"
+                    ></textarea>
+
+
+                    <!-- Composer right side -->
+
+                    <div class="composer-actions">
+
+
+                        <!-- Search -->
+
+                        <button
+                            class="composer-button search-button"
+                            id="searchButton"
+                            aria-label="Web search"
+                            title="Web search"
+                        >
+
+                            ⌕
+
+                        </button>
+
+
+                        <!-- Voice -->
+
+                        <button
+                            class="composer-button voice-button"
+                            id="voiceButton"
+                            aria-label="Voice input"
+                            title="Voice"
+                        >
+
+                            ◉
+
+                        </button>
+
+
+                        <!-- Send -->
+
+                        <button
+                            class="send-button"
+                            id="sendButton"
+                            aria-label="Send"
+                            disabled
+                        >
+
+                            ↑
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     COMPOSER TOOLS
+                ================================================== -->
+
+                <div class="composer-tools">
+
+
+                    <div class="composer-mode">
+
+                        <button
+                            class="mode-button"
+                            id="modeButton"
+                        >
+
+                            <span class="mode-dot"></span>
+
+                            <span>
+                                Standard
+                            </span>
+
+                            <span>
+                                ▾
+                            </span>
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="composer-info">
+
+                        <span>
+                            M POPAL'S AI
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <p class="disclaimer">
+
+                    AI can make mistakes. Check important information.
+
+                </p>
+
+            </div>
+
+        </main>
+
+
+        <!-- =====================================================
+             MODEL MENU
+        ====================================================== -->
+
+        <div
+            class="floating-menu model-menu"
+            id="modelMenu"
+        >
+
+            <div class="floating-menu-title">
+                Choose AI mode
+            </div>
+
+
+            <button
+                class="floating-menu-item selected"
+                data-model="M POPAL'S AI"
+            >
+
+                <span class="menu-item-icon">
+                    M
+                </span>
+
+                <span class="menu-item-content">
+
+                    <strong>
+                        M POPAL'S AI
+                    </strong>
+
+                    <small>
+                        Main assistant
+                    </small>
+
+                </span>
+
+                <span class="check">
+                    ✓
+                </span>
+
+            </button>
+
+
+            <button
+                class="floating-menu-item"
+                data-model="Fast"
+            >
+
+                <span class="menu-item-icon">
+                    ⚡
+                </span>
+
+                <span class="menu-item-content">
+
+                    <strong>
+                        Fast
+                    </strong>
+
+                    <small>
+                        Quick responses
+                    </small>
+
+                </span>
+
+            </button>
+
+
+            <button
+                class="floating-menu-item"
+                data-model="Deep"
+            >
+
+                <span class="menu-item-icon">
+                    ◈
+                </span>
+
+                <span class="menu-item-content">
+
+                    <strong>
+                        Deep
+                    </strong>
+
+                    <small>
+                        More detailed reasoning
+                    </small>
+
+                </span>
+
+            </button>
+
+        </div>
+
+
+        <!-- =====================================================
+             MORE MENU
+        ====================================================== -->
+
+        <div
+            class="floating-menu more-menu"
+            id="moreMenu"
+        >
+
+            <button class="floating-menu-item">
+                <span>↗</span>
+                <span>Share chat</span>
+            </button>
+
+            <button class="floating-menu-item">
+                <span>▣</span>
+                <span>Export chat</span>
+            </button>
+
+            <button class="floating-menu-item">
+                <span>⌘</span>
+                <span>Keyboard shortcuts</span>
+            </button>
+
+            <div class="menu-divider"></div>
+
+            <button class="floating-menu-item danger">
+                <span>⌫</span>
+                <span>Clear conversation</span>
+            </button>
+
+        </div>
+
+
+        <!-- =====================================================
+             SEARCH PANEL
+        ====================================================== -->
+
+        <div
+            class="search-panel"
+            id="searchPanel"
+        >
+
+            <div class="search-panel-header">
+
+                <strong>
+                    Search chats
+                </strong>
+
+                <button
+                    id="closeSearchPanel"
+                    class="panel-close"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="search-input-wrapper">
+
+                <span>
+                    ⌕
+                </span>
+
+                <input
+                    type="text"
+                    id="chatSearchInput"
+                    placeholder="Search your conversations..."
+                >
+
+                <kbd>
+                    ESC
+                </kbd>
+
+            </div>
+
+
+            <div
+                class="search-results"
+                id="searchResults"
+            >
+
+                <div class="empty-search">
+
+                    <span>
+                        ⌕
+                    </span>
+
+                    <p>
+                        Search your conversations
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             SETTINGS PANEL
+        ====================================================== -->
+
+        <div
+            class="side-panel"
+            id="settingsPanel"
+        >
+
+            <div class="panel-header">
+
+                <strong>
+                    Settings
+                </strong>
+
+                <button
+                    class="panel-close"
+                    id="closeSettings"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="settings-content">
+
+
+                <div class="settings-group">
+
+                    <div class="settings-label">
+                        Appearance
+                    </div>
+
+
+                    <button class="setting-option selected">
+
+                        <span>
+                            ◐
+                        </span>
+
+                        <div>
+                            <strong>
+                                Dark
+                            </strong>
+
+                            <small>
+                                Maximum dark interface
+                            </small>
+                        </div>
+
+                        <span>
+                            ✓
+                        </span>
+
+                    </button>
+
+
+                    <button class="setting-option">
+
+                        <span>
+                            ◑
+                        </span>
+
+                        <div>
+                            <strong>
+                                System
+                            </strong>
+
+                            <small>
+                                Follow device settings
+                            </small>
+                        </div>
+
+                    </button>
+
+                </div>
+
+
+                <div class="settings-group">
+
+                    <div class="settings-label">
+                        Chat
+                    </div>
+
+
+                    <button class="setting-option">
+
+                        <span>
+                            ✦
+                        </span>
+
+                        <div>
+                            <strong>
+                                Personalization
+                            </strong>
+
+                            <small>
+                                Customize your AI experience
+                            </small>
+                        </div>
+
+                        <span>
+                            ›
+                        </span>
+
+                    </button>
+
+
+                    <button class="setting-option">
+
+                        <span>
+                            ◌
+                        </span>
+
+                        <div>
+                            <strong>
+                                Conversation history
+                            </strong>
+
+                            <small>
+                                Manage your chats
+                            </small>
+                        </div>
+
+                        <span>
+                            ›
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+                <div class="settings-group">
+
+                    <div class="settings-label">
+                        About
+                    </div>
+
+                    <div class="about-box">
+
+                        <div class="about-logo">
+                            M
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                M POPAL'S AI CHAT
+                            </strong>
+
+                            <small>
+                                Version 1.0
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             HELP PANEL
+        ====================================================== -->
+
+        <div
+            class="side-panel"
+            id="helpPanel"
+        >
+
+            <div class="panel-header">
+
+                <strong>
+                    Help
+                </strong>
+
+                <button
+                    class="panel-close"
+                    id="closeHelp"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="help-content">
+
+                <div class="help-card">
+
+                    <span>
+                        ✦
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Ask anything
+                        </strong>
+
+                        <p>
+                            Write a question in the message box.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="help-card">
+
+                    <span>
+                        ⌕
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Web search
+                        </strong>
+
+                        <p>
+                            Search will later connect to web sources.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="help-card">
+
+                    <span>
+                        ⌨
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Keyboard
+                        </strong>
+
+                        <p>
+                            Enter sends a message. Shift + Enter creates a new line.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             CONFIRMATION MODAL
+        ====================================================== -->
+
+        <div
+            class="modal-overlay"
+            id="modalOverlay"
+        >
+
+            <div class="modal">
+
+                <div class="modal-icon">
+                    !
+                </div>
+
+                <h2>
+                    Clear conversation?
+                </h2>
+
+                <p>
+                    This will remove the messages from this conversation.
+                </p>
+
+                <div class="modal-actions">
+
+                    <button
+                        class="modal-cancel"
+                        id="modalCancel"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        class="modal-confirm"
+                        id="modalConfirm"
+                    >
+                        Clear
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             TOAST
+        ====================================================== -->
+
+        <div
+            class="toast"
+            id="toast"
+        >
+
+            <span class="toast-icon">
+                ✓
+            </span>
+
+            <span
+                class="toast-message"
+                id="toastMessage"
+            >
+                Done
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
